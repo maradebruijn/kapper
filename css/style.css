@@ -1,0 +1,73 @@
+body{
+    display: inline;
+	background-image: url("../img/hairsalon.jpg");
+	font-family: sans-serif;
+}
+
+ul{
+    display: flex;
+    list-style-type: none;
+  }
+
+li{
+    width: 25%;
+  }
+
+img{
+    width: 15em;
+    height: 15em;
+    margin: 0;
+}
+
+.girl, .girl1{
+    width: 20em;
+    height: auto;
+}
+
+.home{
+    text-align: center;
+}
+
+.strike {
+    text-decoration: line-through;
+}
+
+
+.help{
+    border-style: solid;
+    border-radius: 50%;
+    background-color: aliceblue;
+    border-color: rgb(141, 141, 216);
+    padding: 1em;
+    margin: 0.5em 22em 0 22em;
+}
+
+.klaar{
+    border-style: solid;
+    border-radius: 50%;
+    background-color: aliceblue;
+    border-color: rgb(141, 141, 216);
+    padding:1em;
+    margin: 0 1em 0 1em;
+}
+
+h1{
+    margin: 0;
+    padding: 0;
+}
+.laag1{
+    width: 100%;
+    text-align: center;
+}
+
+.todo{
+    background-color: bisque;
+    width: 100%;
+    padding: 0;
+}
+
+
+
+.hide{
+    display: none;
+}
