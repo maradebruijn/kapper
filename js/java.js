@@ -175,8 +175,13 @@ knopKlaar.addEventListener("click", einde);
 
 function reset(){
     girl2.src = "img/klantBegin.png"
+    girl.src = "img/klantStart.png"
     tekst.classList.add('hide');
     knop.classList.remove('hide');
+    nat = 'nee'
+    droog ='nee'
+    knip ='nee'
+    verf = 'nee'
 }
 
 tekst.addEventListener("click", reset);
