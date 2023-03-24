@@ -19,7 +19,7 @@ img{
     margin: 0;
 }
 
-.girl, .girl1{
+.girl, .girl2{
     width: 20em;
     height: auto;
 }
@@ -28,18 +28,18 @@ img{
     text-align: center;
 }
 
+
 .strike {
     text-decoration: line-through;
 }
 
 
-.help{
+.help, .tekst{
     border-style: solid;
-    border-radius: 50%;
     background-color: aliceblue;
     border-color: rgb(141, 141, 216);
     padding: 1em;
-    margin: 0.5em 22em 0 22em;
+    margin: 0.5em 20em 0 20em;
 }
 
 .klaar{
