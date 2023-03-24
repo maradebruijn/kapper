@@ -123,7 +123,7 @@ function haarVerf(parameter){
         girl.src = "img/klantBeginF.png"
     }
     else if (knip == 'nee'){
-        girl.src = "img/klantnatf.png"
+        girl.src = "img/klantNatf.png"
     }
     else if (droog == 'nee'){
         girl.src = "img/klantGekniptf.png"
