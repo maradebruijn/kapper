@@ -1,16 +1,17 @@
 console.log("test project");
 
+
 var kleuren = ["img/klantVerf.png", "img/klantVerf1.png", "img/klantVerf2.png", "img/klantVerf3.png"];
+//de array for de Math.random van de haarkleuren
 
-
-//de array for de Math.random en de variabelen voor de kleuren
-
-var home = document.querySelector(".home");
+var girl2 = document.querySelector(".girl2");
+var tekst = document.querySelector(".tekst");
 var knop = document.querySelector(".help");
 var knopKlaar = document.querySelector(".klaar");
 //het begin scherm + knoppen
 
 var girl = document.querySelector(".girl");
+
 var droogImg = document.querySelector(".hairdryer");
 var knipImg = document.querySelector(".schaar");
 var natImg = document.querySelector(".douche");
@@ -30,8 +31,15 @@ var knip ='nee'
 var verf = 'nee'
 //zodat ik een volgorde kan toepassen
 
+var natAu = new Audio("audio/douchegeluid.wav");
+var droogAu = new Audio("audio/fohngeluid.wav");
+var knipAu = new Audio("audio/schaargeluid.wav");
+var verfAu = new Audio("audio/verfgeluid.wav");
+//de soundeffects
+
 function begin(){
-    home.classList.add('hide');
+    knop.classList.add('hide');
+    girl2.classList.add('hide');
     girl.classList.remove('hide');
     todo.classList.remove('hide');
     droogImg.classList.remove('hide');
@@ -49,6 +57,7 @@ function haarNat(parameter){
 
     if (nat == 'nee'){
         girl.src = "img/klantNat.png"
+        natAu.play();    
         natTxt.classList.add('strike');
         }
     
@@ -63,6 +72,7 @@ function haarKort(parameter){
     if (nat == 'ja' && knip == 'nee'){
         girl.src = "img/klantGeknipt.png"
         knip ='ja'
+        knipAu.play();    
         knipTxt.classList.add('strike')
     }
     else if(nat == 'nee'){
@@ -80,6 +90,7 @@ function haarDroog(parameter){
     if (knip == 'ja' && droog == 'nee'){
         girl.src = "img/klantDroog.png"
         droog ='ja'
+        droogAu.play();    
         droogTxt.classList.add('strike')
     }
     else if (knip == 'nee' && nat == 'nee'){
@@ -105,13 +116,14 @@ function haarVerf(parameter){
         var randomKleur = Math.random()*4;
         randomKleur = Math.floor(randomKleur);
         girl.src = kleuren[randomKleur];
+        verfAu.play();    
         verf = 'ja'
     }
     else if (nat == 'nee'){
         girl.src = "img/klantBeginF.png"
     }
     else if (knip == 'nee'){
-        girl.src = "img/klantNatf.png"
+        girl.src = "img/klantnatf.png"
     }
     else if (droog == 'nee'){
         girl.src = "img/klantGekniptf.png"
@@ -126,28 +138,31 @@ verfImg.addEventListener("click", haarVerf);
 
 function einde(parameter){
 
-    todo.textContent = "Wow wat ziet ze er leuk uit! Super bedankt voor het spelen :)"
+    todo.classList.add('hide');
     droogImg.classList.add('hide');
     knipImg.classList.add('hide');
     natImg.classList.add('hide');
     verfImg.classList.add('hide');
     knopKlaar.classList.add('hide');
+    girl.classList.add('hide');
+    girl2.classList.remove('hide');
+    tekst.classList.remove('hide');
 
     if (girl.src.match("../img/klantVerf.png")){
         console.log("slayed")
-        girl.src = "img/klantEind.png"
+        girl2.src = "img/klantEind.png"
     }
     else if (girl.src.match("../img/klantVerf1.png")){
         console.log("1")
-        girl.src = "img/klantEind1.png"
+        girl2.src = "img/klantEind1.png"
     }
     else if (girl.src.match("../img/klantVerf2.png")){
         console.log("2")
-        girl.src = "img/klantEind2.png"
+        girl2.src = "img/klantEind2.png"
     }
     else if (girl.src.match("../img/klantVerf3.png")){
         console.log("3")
-        girl.src = "img/klantEind3.png"
+        girl2.src = "img/klantEind3.png"
     }
 };
 
@@ -158,6 +173,16 @@ knopKlaar.addEventListener("click", einde);
 //deze functie zorgt ervoor dat het eindresultaat ook matched met de gekozen kleur,
 //en dat je het eindscherm te zien krijgt
 
+function reset(){
+    girl2.src = "img/klantBegin.png"
+    tekst.classList.add('hide');
+    knop.classList.remove('hide');
+}
+
+tekst.addEventListener("click", reset);
+
+//deze functie stuurt je terug naar het beginscherm
+
 //bronnen plaatjes:
 //girl = ik zelf
 //fohn = https://www.clipartmax.com/middle/m2i8N4m2d3d3b1H7_hair-dryer-transparent-images-png-hair-dryer/
@@ -165,3 +190,10 @@ knopKlaar.addEventListener("click", einde);
 //douche = https://www.pngkey.com/maxpic/u2t4o0o0e6i1u2u2/
 //verfkwast = https://www.pngarts.com/explore/91546
 //achtergrond = https://www.saltyhairsalonobx.com/
+
+//bronnen audio
+//douche = https://freesound.org/people/Rickplayer/sounds/530780/
+//fohn = https://freesound.org/people/mariadrrs/sounds/431397/
+//schaar = https://freesound.org/people/Breviceps/sounds/445965/
+//kwast = https://freesound.org/people/tgerginov/sounds/671175/
+//instructies = https://www.w3schools.com/html/html5_audio.asp
